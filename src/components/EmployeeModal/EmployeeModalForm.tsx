@@ -58,8 +58,8 @@ export const EmployeeForm = ({
         </Grid>
         <Grid item xs={6} sm={6}>
           <TextField
-            id="emailAddress"
-            name="emailAddress"
+            id="email"
+            name="email"
             label="email"
             fullWidth
             disabled={loading}
