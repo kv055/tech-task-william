@@ -35,6 +35,7 @@ export const EmployeeForm = ({
         name: values.name,
         email: values.email,
         phone: values.phone,
+        occupation: values.occupation,
       });
     },
   });
