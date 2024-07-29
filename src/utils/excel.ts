@@ -9,13 +9,12 @@ export const writeEmployeesToExcel = async (
       try {
         const workbook = new ExcelJs.Workbook();
         const workSheet = workbook.addWorksheet("Employees");
-        workSheet.columns = ["id", "name", "phone", "occuplaystation"];
-        workSheet.addRow(["id", "name", "phone", "occuplaystation"]);
+        workSheet.columns = ["id", "name", "phone", "occupation"];
+        workSheet.addRow(["id", "name", "phone", "occupation"]);
         for (const employee of employees) {
           workSheet.addRow([
             employee.id,
             employee.name,
-            employee.phone,
             employee.phone,
             employee.occupation,
           ]);
