@@ -5,6 +5,7 @@ import { EmployeeLineItem } from "./interfaces/employees";
 import { useEmployee } from "./hooks/useEmployee";
 import EmployeeModal from "./components/EmployeeModal/EmployeeModal";
 import { writeEmployeesToExcel } from "./utils/excel";
+import { writeEmployeesToCsv } from "./utils/csvExport";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -30,13 +31,26 @@ function App() {
             onClick={async () => {
               if (employees.length) {
                 await writeEmployeesToExcel(employees);
-                await writeEmployeesToExcel(employees);
               } else {
                 alert("No employees to export");
               }
             }}
           >
-            Export
+            Export .xlsx
+          </Button>
+          <Button
+            color="primary"
+            sx={{ marginRight: 1 }}
+            onClick={async () => {
+              if (employees.length) {
+                writeEmployeesToCsv(employees);
+  
+              } else {
+                alert("No employees to export");
+              }
+            }}
+          >
+            Export .csv
           </Button>
           <Button
             color="primary"
