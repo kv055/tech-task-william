@@ -32,10 +32,16 @@ export const useEmployee = () => {
   };
 
   const updateEmployee = async (employee: EmployeeLineItem): Promise<void> => {
+    const updateItemInArray = (employees: EmployeeLineItem[], employee: EmployeeLineItem): EmployeeLineItem[] => {
+      return employees.map(item => 
+        item.id === employee.id ? { ...item, ...employee } : item
+      );
+    };
+    const updatedEmployee = updateItemInArray(employees, employee)
     try {
       setIsLoading(true);
       await sleep(2000);
-      setEmployees([...employees]);
+      setEmployees(updatedEmployee);
     } catch (e: any) {
       setError("Could not update employee");
     } finally {
